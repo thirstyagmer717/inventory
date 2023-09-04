@@ -5,7 +5,8 @@ export default function Navbar(){
             <ul className="flex" style={{justifyContent:"space-evenly",width:"50%"}} >
                 <Link  href="/">Home</Link>
                 <Link href="/products">Products</Link>
-                <Link href="/add">New</Link>
+                <Link href="/new">New</Link>
+                <Link href="/upload">Upload</Link>
             </ul>
 
         </nav>
