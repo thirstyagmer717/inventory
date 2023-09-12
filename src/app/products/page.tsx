@@ -4,9 +4,7 @@ import { useState,useEffect } from "react";
 // let products = new Array();
 type product = {
     name: string,
-    qty_available: Number,
     vendor: string,
-    unit: string,
     _id: string,
 }
 export default function Products() {
@@ -35,6 +33,8 @@ export default function Products() {
     useEffect(() => {
     fetch("/api/product").then(temp=>temp.json()).then((temp2)=>{
         setData(temp2);
+        console.log(temp2.length);
+        
         setSearchResult(temp2);
     });  
 
@@ -50,7 +50,6 @@ export default function Products() {
                 <div key={p._id} className="flex justify-between w-1/3 mt-4">
                     <span>{p.name}</span>{" "}
                     <span>{p.vendor}</span>{" "}
-                    <span>{p.qty_available}</span>
                 </div>
             ))}
         </div>   
