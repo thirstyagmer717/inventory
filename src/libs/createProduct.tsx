@@ -40,9 +40,9 @@ const createProduct = async (req: any) => {
     };
 
     operations.push({
-      insertOne: {
-        document: object,
-        upserts: true,
+      updateOne: {
+        update: object,
+        upsert:true,
         filter: filter,
       },
     });

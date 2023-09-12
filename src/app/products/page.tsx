@@ -7,29 +7,43 @@ type product = {
     vendor: string,
     _id: string,
 }
-export default function Products() {
-    // function logState(){
-    // console.log(data);
-    // }
-    
+export default function Products() {  
     const [data, setData] = useState(new Array);
     const [searchResult, setSearchResult] = useState(new Array);
     const [searchVal,setSearchVal] = useState("");
-    function search(){
-        if(searchVal=="" || searchVal==null){setSearchResult(data);return};
+    // function search(){
+    //     if(searchVal=="" || searchVal==null){setSearchResult(data);return};
 
-        const mySearch = searchVal.split(',').filter(element=>element) // Is an array of values in the search field comma separated
-        if(mySearch.length==0)return;
-        console.log(mySearch);
+    //     const mySearch = searchVal.split(',').filter(element=>element) // Is an array of values in the search field comma separated
+    //     if(mySearch.length==0)return;
         
-        setSearchResult(data.filter(searchFilter));
-        function searchFilter(temp:product){ 
-            for(let i=0;i<mySearch.length;i++){
-                if(temp.name.toLocaleLowerCase().trim()==mySearch[i].toLocaleLowerCase() || mySearch[i].toLocaleLowerCase().includes(temp.name.toLocaleLowerCase().trim()))return true;
-            }
-            return false;
+    //     setSearchResult(data.filter(searchFilter));
+    //     function searchFilter(temp:product){ 
+    //         console.log(temp);
+            
+    //         for(let i=0;i<mySearch.length;i++){
+    //             if(temp.name.toLocaleLowerCase().includes(mySearch[i].toLocaleLowerCase()))return true;
+    //         }
+    //         return false;
+    //     }
+    // }
+    function search() {
+        if (searchVal === "" || searchVal === null) {
+          setSearchResult(data);
+          return;
         }
-    }
+      
+        const mySearch = searchVal.split(",").filter((element) => element); // Is an array of values in the search field comma separated
+        if (mySearch.length === 0) {
+          return;
+        }
+      
+        setSearchResult(
+          data.filter((product) =>
+            mySearch.some((term) => product.name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
+          )
+        );
+      }
     useEffect(() => {
     fetch("/api/product").then(temp=>temp.json()).then((temp2)=>{
         setData(temp2);
