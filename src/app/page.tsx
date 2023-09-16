@@ -22,7 +22,7 @@ export default function Products() {
 
     setSearchResult(
       data.filter((product) =>
-        mySearch.some((term) => product.name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
+        mySearch.some((term) => product.name.toLocaleLowerCase().includes(term.toLocaleLowerCase().trim()))
       )
     );
   }
@@ -37,10 +37,10 @@ export default function Products() {
 
   return (
     <>
-      <div className="flex flex-col items-center mt-10">
-        <input name="search" placeholder="Product Name" onChange={e => setSearchVal(e.target.value)} type="text" className=" border-2 border-black px-2 py-1 rounded"></input>
-        <button type="submit" onClick={search} className="bg-blue-200 px-4 py-1 rounded mt-4">Search</button>
-        <table className="table-fixed border-separate border border-gray-500 m-8">
+      <div className="flex flex-col items-center mt-10 mx-8">
+        <textarea name="search" placeholder="Product Name" rows={4} onChange={e => setSearchVal(e.target.value)} className=" w-full border-2 border-black px-2 py-1 rounded"></textarea>
+        <button type="submit" onClick={search} className="bg-blue-200 px-4 py-1 rounded my-4">Search</button>
+        <table className="table-fixed border-separate border border-gray-500">
           <thead>
             <tr>
               <th className="border border-gray-500 p-2">Name</th>
