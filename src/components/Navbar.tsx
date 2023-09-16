@@ -2,9 +2,8 @@ import Link from "next/link"
 export default function Navbar(){
     return (
         <nav className="flex justify-center" style={{padding:"1rem"}}>
-            <ul className="flex" style={{justifyContent:"space-evenly",width:"50%"}} >
-                <Link  href="/">Home</Link>
-                <Link href="/products">Products</Link>
+            <ul className="flex md:w-1/2 w-full" style={{justifyContent:"space-evenly"}} >
+                <Link href="/">Products</Link>
                 <Link href="/new">New</Link>
                 <Link href="/upload">Upload</Link>
             </ul>

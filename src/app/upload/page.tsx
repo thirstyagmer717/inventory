@@ -41,9 +41,12 @@ export default function Upload() {
     
       
       return (
-          <form className="flex">
+        <div>
+
+          <form className="flex justify-center mt-8">
             <input type="file" onChange={handleFileChange} name="excelfile" required/>
             <button type="submit" onClick={handleFile} className="bg-blue-300 px-2 py-1 rounded-sm">Upload</button>
         </form>
+        </div>
     )
 }
