@@ -2,20 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define fixed colors */
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 0, 0, 0; /* Black text color */
+  --background-start-rgb: 214, 219, 220; /* Light background start color */
+  --background-end-rgb: 255, 255, 255; /* Light background end color */
 }
 
+/* Override any dark mode styles */
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-rgb: 0, 0, 0; /* Black text color (same as light mode) */
+    --background-start-rgb: 255, 255, 255; /* Light background start color (same as light mode) */
+    --background-end-rgb: 255, 255, 255; /* Light background end color (same as light mode) */
   }
 }
 
+/* Apply fixed colors */
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
